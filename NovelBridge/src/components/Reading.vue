@@ -33,6 +33,7 @@ import { collection, getDocs, doc , deleteDoc } from 'firebase/firestore';
 
 export default {
     props: ['bookName'],
+    
     created() {
         async function getChapters(bookN) {
             const db = getFirestore(firebaseApp);
@@ -42,10 +43,18 @@ export default {
 
         }
     },
+    data() {
+        return {
+            all_chapters: getChapters(bookName),
+            keys: all_chapters.getKeys(),
+            chapter: keys[0],
+            chapter_data: all_chapters[chapter]
+        }
+    }, 
     mounted() {
         function goToNextChapter(){
             for (let i=0;i<len(keys)-1;i++){
-                if chapter == keys[i] {
+                if (chapter == keys[i]) {
                     chapter = keys[i+1]
                     chapter_data = all_chapters[chapter]
                 }
@@ -53,21 +62,14 @@ export default {
         }
         function goToPreviousChapter(){
             for (let i=1;i<len(keys);i++){
-                if chapter == keys[i] {
+                if (chapter == keys[i]) {
                     chapter = keys[i-1]
                     chapter_data = all_chapters[chapter]
                 }
             }
         }
     }
-    data() {
-        return {
-            all_chapters = getChapters(bookName)
-            keys = all_chapters.getKeys()
-            chapter = keys[0]
-            chapter_data = all_chapters[chapter]
-        }
-    }
+    
 }
 
 </script>
