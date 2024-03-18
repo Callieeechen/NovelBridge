@@ -27,11 +27,11 @@
 
     <div class="book-content">
       <h3>CONTENT . {{ book.chapters.length }} Chapters</h3>
-      <ul class="chapter-list">
-        <li v-for="(chapter, index) in book.chapters" :key="index">
+      <div class="chapters-row">
+        <div v-for="(chapter, index) in book.chapters" :key="index" class="chapter-title">
           {{ chapter.title }}
-        </li>
-      </ul>
+        </div>
+      </div>
     </div>
 
   </template>
@@ -121,12 +121,12 @@
   margin-right: 5px; /* Space between the icon and the text */
 }
 
-.chapters-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* Creates a four-column grid */
-    grid-gap: 10px; /* Space between grid items */
-    margin-bottom: 20px; /* Spacing after the grid */
-  }
+chapters-row {
+  display: flex; /* Establishes a flex container */
+  flex-wrap: wrap; /* Allows items to wrap onto the next line */
+  gap: 15px; /* Provides space between items */
+  justify-content: flex-start; /* Aligns items to the start of the container */
+}
 
 
 
