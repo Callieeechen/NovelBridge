@@ -1,7 +1,9 @@
 <template>
     <div id="header_pane"> 
         <!-- for the previous and next button -->
-
+        <button id="gotoprevious" @click="goToPreviousChapter">Previous</button>
+        <button id="gotohime" @click="goToHome">Home</button>
+        <button id="gotonext" @click="goToNextChapter">Next</button>
     </div>
 
     <div id="left_pane">
@@ -18,7 +20,9 @@
 
     <div id="footer pane">
         <!-- for the previous and next button -->
-
+        <button id="gotoprevious" @click="goToPreviousChapter">Previous</button>
+        <button id="gotohime" @click="goToHome">Home</button>
+        <button id="gotonext" @click="goToNextChapter">Next</button>
     </div>
 
 </template>
@@ -67,6 +71,9 @@ export default {
                     chapter_data = all_chapters[chapter]
                 }
             }
+        }
+        function goToBookInfo(){
+            //code to go back to the view with book info
         }
     }
     
