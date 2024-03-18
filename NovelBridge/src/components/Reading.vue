@@ -1,28 +1,25 @@
 <template>
-    <div id="header_pane"> 
-        <!-- for the previous and next button -->
-        <button id="gotoprevious" @click="goToPreviousChapter">Previous</button>
-        <button id="gotohime" @click="goToHome">Home</button>
-        <button id="gotonext" @click="goToNextChapter">Next</button>
-    </div>
 
     <div id="left_pane">
         <!-- for advertizing -->
     </div>
 
     <div id="reading pane">
-        {{ chapter_data }}
+        <button id="gotohome" @click="goToHome">{{bookName}}</button>
+        <h1>{{ chapter }}</h1>
+        <div id="text">
+            {{ chapter_data }}
+        </div>
+        <div id="footer pane">
+        <!-- for the previous and next button -->
+            <button id="gotoprevious" @click="goToPreviousChapter">Previous</button>
+
+            <button id="gotonext" @click="goToNextChapter">Next</button>
+    </div>
     </div>
 
     <div id="right_pane">
         <!-- for utility buttons -->
-    </div>
-
-    <div id="footer pane">
-        <!-- for the previous and next button -->
-        <button id="gotoprevious" @click="goToPreviousChapter">Previous</button>
-        <button id="gotohime" @click="goToHome">Home</button>
-        <button id="gotonext" @click="goToNextChapter">Next</button>
     </div>
 
 </template>
@@ -77,3 +74,20 @@ export default {
 }
 
 </script>
+
+<style>
+#footer_pane {
+    width: 100%;
+    height: 10%;
+}
+#left_pane,#rightpane,#reading_pane {
+    width: 15%;
+    height: 80%;
+    float: left;
+}
+#reading_pane {
+    text-align: center;
+    background-color: #F4F2EC;
+}
+
+</style>
