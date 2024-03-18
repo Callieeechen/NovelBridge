@@ -76,10 +76,6 @@ export default {
 </script>
 
 <style>
-#footer_pane {
-    width: 100%;
-    height: 10%;
-}
 #left_pane,#rightpane,#reading_pane {
     width: 15%;
     height: 80%;
