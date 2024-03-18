@@ -1,4 +1,25 @@
 <template>
+    <div id="header_pane"> 
+        <!-- for the previous and next button -->
+
+    </div>
+
+    <div id="left_pane">
+        <!-- for advertizing -->
+    </div>
+
+    <div id="reading pane">
+        {{ chapter_data }}
+    </div>
+
+    <div id="right_pane">
+        <!-- for utility buttons -->
+    </div>
+
+    <div id="footer pane">
+        <!-- for the previous and next button -->
+
+    </div>
 
 </template>
 
