@@ -37,16 +37,6 @@ import { collection, getDocs, doc , deleteDoc } from 'firebase/firestore';
 
 export default {
     props: ['bookName'],
-    
-    created() {
-        async function getChapters(bookN) {
-            const db = getFirestore(firebaseApp);
-            const book = await getDocs(collection(db, 'Books',bookN))
-            let chapters = book.data().Chapters 
-            return chapters
-
-        }
-    },
     data() {
         return {
             all_chapters: getChapters(bookName),
@@ -55,24 +45,31 @@ export default {
             chapter_data: all_chapters[chapter]
         }
     }, 
-    mounted() {
-        function goToNextChapter(){
+    methods: {
+        async getChapters(bookN) {
+            const db = getFirestore(firebaseApp);
+            const book = await getDocs(collection(db, 'Books',bookN))
+            let chapters = book.data().Chapters 
+            return chapters
+
+        },
+        goToNextChapter(){
             for (let i=0;i<len(keys)-1;i++){
                 if (chapter == keys[i]) {
                     chapter = keys[i+1]
                     chapter_data = all_chapters[chapter]
                 }
             }
-        }
-        function goToPreviousChapter(){
+        },
+        goToPreviousChapter(){
             for (let i=1;i<len(keys);i++){
                 if (chapter == keys[i]) {
                     chapter = keys[i-1]
                     chapter_data = all_chapters[chapter]
                 }
             }
-        }
-        function goToBookInfo(){
+        },
+        goToBookInfo(){
             //code to go back to the view with book info
         }
     }
