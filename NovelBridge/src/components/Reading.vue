@@ -5,7 +5,7 @@
     </div>
 
     <div id="reading pane">
-        <button id="gotohome" @click="goToHome">{{bookName}}</button>
+        <button id="gotohome" @click="goToHome">< {{bookName}}</button>
         <h1>{{ chapter }}</h1>
         <div id="text">
             {{ chapter_data }}
@@ -68,6 +68,15 @@ export default {
         },
         goToBookInfo(){
             //code to go back to the view with book info
+        },
+        translate(original, newL){
+            //code to translate chapter data
+        },
+        increaseTextSize() {
+            document.getElementById("text").style.fontSize = document.getElementById("text").style.fontSize + 1
+        },
+        decreaseTextSize() {
+            document.getElementById("text").style.fontSize = document.getElementById("text").style.fontSize - 1
         }
     }
     
@@ -84,6 +93,19 @@ export default {
 #reading_pane {
     text-align: center;
     background-color: #F4F2EC;
+}
+#gotohome{
+    border: none;
+    background-color: #F4F2EC;
+    padding-left: 5px;
+    text-align: center;
+    font-size: 8px;
+}
+#text {
+    text-align: center;
+    padding: 5px 15px;
+    font-size: 16px;
+
 }
 
 </style>
